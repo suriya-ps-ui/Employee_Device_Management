@@ -7,12 +7,6 @@ using Services;
 using Microsoft.OpenApi.Models;
 
 var builder=WebApplication.CreateBuilder(args);
-builder.Configuration.Sources.Clear();
-
-// Add appsettings.Development.json as the primary configuration file
-builder.Configuration
-    .AddJsonFile("appsettings.Development.json", optional: false, reloadOnChange: true)
-    .AddEnvironmentVariables();
 // Add DbContext
 builder.Services.AddDbContext<AssetManagementContext>(options=>options.UseSqlServer(builder.Configuration["ConnectionStrings:DefaultConnection"]));
 

@@ -1,13 +1,6 @@
 using Services;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Configuration.Sources.Clear();
-
-// Add appsettings.Development.json as the primary configuration file
-builder.Configuration
-    .AddJsonFile("appsettings.Development.json", optional: false, reloadOnChange: true)
-    .AddEnvironmentVariables();
-
 // Add services to the container
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession(options =>
